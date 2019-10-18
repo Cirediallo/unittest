@@ -117,31 +117,21 @@ public final class RomanNumber extends Number {
     return new RomanNumber(value);
   }
 
-	private static int fromRoman(String romanStr)
-	{
-		// cette fonction ne marche pas avec openjdk sous ubuntu
-		// int result = 0;
-		// int index = 0;
-		// int romanStr_len = romanStr.length();
-		
-		// for( Map.Entry<String, Integer> v : SYMBOLS.entrySet() )
-		// {
-			// String sym = v.getKey();
-			// int nbr = v.getValue();
-			// int sym_len = sym.length();
-			
-			// while( ( sym_len + index ) <= romanStr_len && romanStr.substring(index, index + sym_len).equals(sym) )
-			// {
-				// result = result + nbr;
-				// index = index + sym_len;
-			// }
-		// }
-		
-		// return result;
-		
-		return 0;
+	private static int fromRoman(String romanValue)
+	{	int resultat = 0;
+		int index = 0;
+		for(String k: SYMBOLS.keySet()) {
+			while(romanValue.substring(romanValue.indexOf(index), index+k.length()) == k) {
+				resultat += SYMBOLS.get(k);
+				index += k.length();
+			}
+			 
+
+			}
+		return resultat;
 	}
-	
+   
+			
 	private static String toRoman(int number)
 	{
 		String roman;
